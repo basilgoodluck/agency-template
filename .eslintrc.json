@@ -1,0 +1,16 @@
+{
+    "rules": {
+      "no-restricted-imports": [
+        "error",
+        {
+          "patterns": ["../*", "./*"]
+        }
+      ]
+    },
+    "settings": {
+      "import/resolver": {
+        "typescript": {}
+      }
+    }
+  }
+  
