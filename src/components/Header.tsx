@@ -34,14 +34,14 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
                   Home
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link 
                   href="/about" 
                   className="text-neutral-800 dark:text-neutral-100 hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
                 >
                   About
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link 
                   href="/projects" 
