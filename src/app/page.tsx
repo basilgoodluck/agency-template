@@ -1,17 +1,15 @@
 'use client'
 
 import Hero from './layouts/hero/page';
-import About from './layouts/about/page';
 import Contact from './layouts/contact/page';
-import Projects from './layouts/projects/page';
+import ServicesSection from './layouts/services/page';
 
 
 export default function Home() {
   return (
       <>
         <Hero />
-        {/* <About /> */}
-        <Projects />
+        <ServicesSection />
         <Contact />
       </>
   )
