@@ -1,6 +1,5 @@
 import { JSX } from "react";
 import Overview from "./components/overview";
-import Technologies from "./components/tools";
 
 export default function About(): JSX.Element {
   return (
