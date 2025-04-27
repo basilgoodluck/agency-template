@@ -1,5 +1,4 @@
 "use client";
-// import { motion } from "framer-motion";
 import Link from "next/link";
 import { Sun, Moon } from "lucide-react";
 
@@ -13,7 +12,6 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
     <div className="fixed top-4 left-0 right-0 z-20 flex justify-center">
       <header className="bg-primary-100 dark:bg-neutral-800 shadow-lg rounded-b-lg mx-4 mt-0">
         <div className="px-6 py-4 flex items-center justify-between space-x-8 shadow-md dark:shadow-neutral-600 shadow-gray-400 rounded-lg">
-          {/* Logo/Icon Button */}
           <div className="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600 transition-colors">
             <Link href="/">
               <span className="text-2xl text-primary-500 dark:text-primary-400">
@@ -22,7 +20,6 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
             </Link>
           </div>
 
-          {/* Navigation */}
           <nav>
             <ul className="flex items-center space-x-6">
               <li>
@@ -60,7 +57,6 @@ export default function Header({ theme, toggleTheme }: HeaderProps) {
             </ul>
           </nav>
 
-          {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
             className="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600 transition-colors"

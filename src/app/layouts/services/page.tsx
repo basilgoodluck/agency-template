@@ -44,7 +44,6 @@ const ServicesSection = () => {
     threshold: 0.1,
   });
 
-  // Container animation for staggering children
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -55,7 +54,6 @@ const ServicesSection = () => {
     },
   };
 
-  // Card animation for entrance and hover
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {

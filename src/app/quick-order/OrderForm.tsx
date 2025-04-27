@@ -3,7 +3,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-// Interface for form data
 interface FormData {
   name: string;
   email: string;
@@ -11,7 +10,6 @@ interface FormData {
   details: string;
 }
 
-// Props for OrderForm
 interface OrderFormProps {
   selectedService: string;
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;

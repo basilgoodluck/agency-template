@@ -4,27 +4,19 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useInView } from 'react-intersection-observer';
+import Image from 'next/image';
 
 const Hero = () => {
-  // Animation variants for the headline
   const headlineVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 1, ease: 'easeOut' } },
   };
 
-  // Animation variants for the experience tag
-  const experienceVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8, delay: 0.5, ease: 'easeOut' } },
-  };
-
-  // Animation variants for the description and testimonial
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 1, ease: 'easeOut' } },
   };
 
-  // Animation variants for the icon and slash
   const iconVariants = {
     hidden: { scale: 0 },
     visible: { scale: 1, transition: { duration: 0.5, delay: 0.2, type: 'spring', stiffness: 100 } },
@@ -41,9 +33,11 @@ const Hero = () => {
       className="relative flex items-center justify-center min-h-screen bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 p-6 overflow-hidden pt-20 pb-10"
     >
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary-200 to-primary-300 dark:from-neutral-800 dark:to-neutral-900">
-        <img 
+        <Image 
           src="/images/heroBg.png" 
           alt="Your image" 
+          width={200}
+          height={200}
           className="relative z-10 w-full h-full object-cover opacity-50" 
         />
       </div>
@@ -70,7 +64,6 @@ const Hero = () => {
         </motion.span>
       </motion.div>
 
-      {/* Main Headline */}
       <div className="relative z-10 text-center">
         <motion.h1
           className="text-6xl md:text-6xl font-bold leading-tight"
@@ -89,22 +82,6 @@ const Hero = () => {
           CODE & <span className="text-primary-500 dark:text-primary-400">PRECISION</span>
         </motion.h1>
 
-        {/* Experience Tag */}
-        {/* <motion.div
-          className="absolute left-8 top-1/3 transform -translate-y-1/2"
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={experienceVariants}
-        >
-          <div className="relative inline-block">
-            <span className="absolute inset-0 bg-neutral-100 dark:bg-neutral-700 opacity-70 -skew-y-6"></span>
-            <span className="relative text-4xl md:text-5xl font-bold text-accent-600">
-              2 YEARS+
-            </span>
-          </div>
-        </motion.div> */}
-
-        {/* Description */}
         <motion.div
           className="relative mt-6 max-w-2xl mx-auto"
           initial="hidden"
@@ -120,7 +97,6 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Decorative Slash (Bottom Right) */}
       <motion.div
         className="absolute bottom-8 right-8 text-4xl text-primary-500 dark:text-primary-400"
         initial="hidden"

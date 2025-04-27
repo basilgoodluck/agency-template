@@ -23,7 +23,6 @@ export default function ContactForm(): JSX.Element {
     setFormData({ name: '', email: '', message: '' });
   };
 
-  // Animation variants
   const titleVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },

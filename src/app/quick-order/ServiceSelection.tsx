@@ -4,25 +4,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import ServiceCard from '@/components/ServiceCard';
 
-// Interface for service
 interface Service {
   title: string;
 }
 
-// Props for ServiceSelection
 interface ServiceSelectionProps {
   onSelect: (service: Service) => void;
   selectedService: string | null;
 }
 
-// Props for ServiceCard (inferred from usage)
-interface ServiceCardProps {
-  title: string;
-  onSelect: () => void;
-  isSelected: boolean;
-}
-
-// Predefined services
 const services: Service[] = [
   { title: 'E-commerce Development' },
   { title: 'Landing Page' },

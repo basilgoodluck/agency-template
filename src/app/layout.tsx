@@ -4,7 +4,6 @@ import './globals.scss';
 import { ReactNode, useEffect, useState, Suspense, useRef } from 'react';
 import dynamic from 'next/dynamic';
 
-// Dynamic imports with typed components
 const Header = dynamic(() => import('@/components/Header'), {
   loading: () => <div className="h-16 bg-gray-100 dark:bg-neutral-800 animate-pulse" />,
 });
@@ -13,21 +12,8 @@ const Footer = dynamic(() => import('@/components/Footer'), {
   loading: () => <div className="h-12 bg-gray-100 dark:bg-neutral-800 animate-pulse" />,
 });
 
-// Type for theme
 type Theme = 'light' | 'dark';
 
-// Type for Particle class
-interface Particle {
-  x: number;
-  y: number;
-  size: number;
-  speedX: number;
-  speedY: number;
-  update: (canvasWidth: number, canvasHeight: number) => void;
-  draw: (ctx: CanvasRenderingContext2D) => void;
-}
-
-// Props for ThemeProvider
 interface ThemeProviderProps {
   children: ReactNode;
 }

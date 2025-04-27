@@ -6,8 +6,8 @@ import { useInView } from 'react-intersection-observer';
 import Link from 'next/link';
 import ServiceSelection from './ServiceSelection';
 import OrderForm from './OrderForm';
+import Image from 'next/image';
 
-// Interface for form data
 interface FormData {
   name: string;
   email: string;
@@ -15,24 +15,8 @@ interface FormData {
   details: string;
 }
 
-// Interface for service (inferred from handleServiceSelect)
 interface Service {
   title: string;
-}
-
-// Props for ServiceSelection (inferred from usage)
-interface ServiceSelectionProps {
-  onSelect: (service: Service) => void;
-  selectedService: string | null;
-}
-
-// Props for OrderForm (inferred from usage)
-interface OrderFormProps {
-  selectedService: string;
-  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-  formData: FormData;
-  onInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  isSubmitted: boolean;
 }
 
 const QuickOrder: React.FC = () => {
@@ -61,7 +45,6 @@ const QuickOrder: React.FC = () => {
     setFormData({ name: '', email: '', budget: '', details: '' });
   };
 
-  // Animation variants
   const headlineVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 1, ease: 'easeOut' } },
@@ -84,20 +67,20 @@ const QuickOrder: React.FC = () => {
 
   return (
     <div className="min-h-screen text-neutral-800 dark:text-neutral-100">
-      {/* Full-screen Quick Order Section */}
       <section
         ref={ref}
         className="relative flex items-center justify-center min-h-screen bg-white dark:bg-neutral-800 p-6 pt-20 pb-10"
       >
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary-200 to-primary-300 dark:from-neutral-800 dark:to-neutral-900">
-          <img
+          <Image
             src="/images/heroBg.png"
             alt="Background"
+            width={200}
+            height={200}
             className="relative z-10 w-full h-full object-cover opacity-50"
           />
         </div>
 
-        {/* Decorative Icon (Top Left) */}
         <motion.div
           className="absolute top-8 left-8 flex items-center space-x-2 z-50"
           initial="hidden"
@@ -120,7 +103,6 @@ const QuickOrder: React.FC = () => {
           </motion.span>
         </motion.div>
 
-        {/* Main Content */}
         <div className="relative z-10 text-center">
           <motion.h1
             className="text-6xl md:text-6xl font-bold leading-tight text-neutral-900 dark:text-neutral-100"
@@ -140,7 +122,6 @@ const QuickOrder: React.FC = () => {
           </motion.p>
         </div>
 
-        {/* Decorative Slash (Bottom Right) */}
         <motion.div
           className="absolute bottom-8 right-8 text-4xl text-primary-500 dark:text-primary-400"
           initial="hidden"
@@ -151,7 +132,6 @@ const QuickOrder: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* Service Selection and Form */}
       <ServiceSelection onSelect={handleServiceSelect} selectedService={selectedService} />
       {selectedService && (
         <OrderForm

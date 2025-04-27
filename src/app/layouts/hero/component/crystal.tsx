@@ -1,4 +1,3 @@
-// components/CrystalN.tsx
 "use client";
 import React, { useEffect, useRef } from "react";
 import { Canvas } from '@react-three/fiber'
@@ -28,7 +27,6 @@ const CrystalN: React.FC = () => {
     let width = canvas.width;
     let height = canvas.height;
 
-    // Resize canvas
     const resizeCanvas = () => {
       width = Math.min(window.innerWidth * 0.3, 300);
       height = Math.min(window.innerHeight * 0.4, 350);
@@ -41,7 +39,6 @@ const CrystalN: React.FC = () => {
 
     const createParticles = () => {
       particles.length = 0;
-      // Left vertical line
       for (let i = 0; i < 100; i++) {
         particles.push({
           x: width * 0.25 + Math.random() * (width * 0.1),
@@ -54,7 +51,6 @@ const CrystalN: React.FC = () => {
           hue: 230 + Math.random() * 30,
         });
       }
-      // Right vertical line
       for (let i = 0; i < 100; i++) {
         particles.push({
           x: width * 0.75 + Math.random() * (width * 0.1),

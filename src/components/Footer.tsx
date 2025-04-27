@@ -5,7 +5,6 @@ import { FaGithub, FaTelegramPlane, FaLinkedinIn } from 'react-icons/fa';
 import { BsTwitterX } from 'react-icons/bs';
 
 export default function Footer() {
-  // Animation variants
   const iconVariants = {
     hidden: { opacity: 0, scale: 0 },
     visible: {
@@ -31,7 +30,6 @@ export default function Footer() {
       className="w-full bg-gray-100 dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800 overflow-x-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 py-8 text-center">
-        {/* Social Icons */}
         <motion.div
           className="flex flex-wrap gap-4 items-center justify-center mb-6"
           initial="hidden"
@@ -83,7 +81,6 @@ export default function Footer() {
           </motion.a>
         </motion.div>
 
-        {/* Copyright Text */}
         <motion.p
           className="text-sm text-neutral-600 dark:text-neutral-400"
           initial="hidden"

@@ -3,7 +3,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const ServiceCard = ({ title, onSelect, isSelected }) => {
+interface ServiceCardProps {
+  title: string;
+  onSelect: () => void;
+  isSelected: boolean;
+}
+
+const ServiceCard: React.FC<ServiceCardProps> = ({ title, onSelect, isSelected }) => {
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
