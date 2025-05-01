@@ -1,0 +1,215 @@
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 60px 0;
+  height: 400px;
+}
+
+/* Main horizontal line that spans across all connection points */
+.horizontalLine {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #666;
+  top: 50%;
+  left: 0;
+  z-index: -1;
+}
+
+.connectionsWrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+  height: 100%;
+}
+
+.connectionContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100px;
+}
+
+.connectionContainer:has(.up)::before{
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 51%;
+  left: 21%;
+  transform: translate(-50%, -100%);
+  border: 2px solid transparent;
+  border-left: 2px solid #666;
+  border-top: 2px solid #666;
+  border-radius: 100% 0 0 0;
+  background-color: #f3f4f6;
+  z-index: 2;
+}
+
+.connectionContainer:has(.down)::before{
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 49%;
+  left: 21%;
+  transform: translate(-50%, 0);
+  border: 2px solid transparent;
+  border-left: 2px solid #666;
+  border-bottom: 2px solid #666;
+  border-radius: 0 0 0 100%;
+  background-color: #f3f4f6;
+  z-index: 2;
+}
+
+/* Circle at intersection of horizontal and vertical lines */
+.intersectionCircle {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  overflow: hidden;
+  /* border: 10px solid #eee; */
+}
+
+.intersectionCircle .intersectionInnerCircle {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  /* background-color: ; */
+}
+
+/* Vertical lines */
+.verticalLine {
+  position: absolute;
+  width: 2px;
+  background-color: #666;
+  z-index: 1;
+}
+
+/* Upward vertical lines */
+.up {
+  height: 120px;
+  bottom: 50%;
+}
+
+/* Downward vertical lines */
+.down {
+  height: 120px;
+  top: 50%;
+}
+
+/* End points - small boxes */
+.endPoint {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  z-index: 2;
+}
+
+/* Position end points for up connections */
+.endpoint-up {
+  top: calc(50% - 140px);
+}
+
+/* Position end points for down connections */
+.endpoint-down {
+  bottom: calc(50% - 140px);
+}
+
+/* Mobile styles - completely different layout */
+@media (max-width: 768px) {
+  .container {
+    height: auto;
+    padding: 20px 0;
+  }
+  
+  .horizontalLine {
+    display: none;
+  }
+  
+  .connectionsWrapper {
+    flex-direction: column;
+    height: auto;
+    max-width: 100%;
+    padding: 10px;
+  }
+  
+  .connectionContainer {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .connectionContainer:has(.up)::before,
+  .connectionContainer:has(.down)::before {
+    display: none;
+  }
+  
+  .intersectionCircle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin-right: 15px;
+  }
+  
+  .intersectionCircle .intersectionInnerCircle {
+    width: 55px;
+    height: 55px;
+    font-size: 12px;
+  }
+  
+  .verticalLine {
+    display: none;
+  }
+  
+  .endPoint {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    margin-left: 15px;
+  }
+  
+  /* Add a vertical line connecting all items */
+  .connectionsWrapper::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    background-color: #666;
+    left: 30px;
+    top: 0;
+    z-index: 0;
+  }
+}
